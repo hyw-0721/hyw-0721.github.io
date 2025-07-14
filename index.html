@@ -1,170 +1,183 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人学术主页</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>郝亦武 · 个人学术主页</title>
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    >
-    <style>
-        :root {
-            --sidebar-width: 260px;
-        }
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --sidebar-width: 250px;
+    }
 
-        /* 整体排版 */
-        body {
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            background-color: #f8f9fa;
-        }
-        /* 左侧侧栏固定并可独立滚动 */
-        #sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: var(--sidebar-width);
-            overflow-y: auto;
-            background-color: #ffffff;
-            border-right: 1px solid #dee2e6;
-            padding: 1rem;
-        }
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #212529;
+    }
 
-        /* 主内容区留出侧栏宽度 */
-        #main-content {
-            margin-left: calc(var(--sidebar-width) + 1rem);
-            padding: 2rem 1rem;
-            max-width: 900px;
-        }
+    #sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: var(--sidebar-width);
+      background-color: #ffffff;
+      border-right: 1px solid #dee2e6;
+      overflow-y: auto;
+      padding: 1.5rem 1rem;
+    }
 
-        /* 章节标题统一样式 */
-        h2 {
-            border-bottom: 1px solid #dee2e6;
-            padding-bottom: 0.3rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
+    #sidebar img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+    }
 
-        /* 链接过渡效果 */
-        .nav-link {
-            transition: color 0.2s ease-in-out;
-        }
-        .nav-link:hover {
-            color: #0d6efd;
-        }
-    </style>
+    #sidebar h4 {
+      margin-top: 0.8rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    #sidebar .nav-link {
+      color: #444;
+      padding: 0.4rem 0.6rem;
+      border-radius: 5px;
+    }
+
+    #sidebar .nav-link:hover,
+    #sidebar .nav-link.active {
+      background-color: #e9ecef;
+      color: #0d6efd;
+    }
+
+    #main-content {
+      margin-left: calc(var(--sidebar-width) + 2rem);
+      padding: 2rem 1rem;
+      max-width: 960px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 0.4rem;
+      margin-top: 2.5rem;
+      font-weight: 600;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.2rem;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .small-muted {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: #aaa;
+      text-align: center;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
-    <!-- ================= 左侧侧栏 ================ -->
-    <nav id="sidebar" class="d-flex flex-column">
-        <!-- 头像栏 -->
-        <div class="text-center mb-4">
-            <img src="img/avatar.jpg" class="img-fluid rounded-circle border shadow-sm" alt="Avatar" style="width: 140px; height: 140px; object-fit: cover;">
-            <h4 class="mt-3 mb-0">[您的姓名]</h4>
-            <small class="text-muted">[职称 / 学术头衔]</small>
-        </div>
+  <!-- ===== 左侧滑动栏 ===== -->
+  <aside id="sidebar">
+    <div class="text-center">
+      <img src="img/avatar.jpg" alt="Avatar" class="img-fluid rounded-circle shadow-sm mb-3 border" />
+      <h4>郝亦武</h4>
+      <div class="small-muted">重庆大学</div>
+    </div>
 
-        <!-- 导航 -->
-        <h6 class="text-uppercase text-muted mb-2">导航</h6>
-        <ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link" href="#about">基本信息</a></li>
-            <li class="nav-item"><a class="nav-link" href="#research">研究兴趣</a></li>
-            <li class="nav-item"><a class="nav-link" href="#education">教育背景</a></li>
-            <li class="nav-item"><a class="nav-link" href="#experience">工作经历</a></li>
-            <li class="nav-item"><a class="nav-link" href="#publications">发表论文</a></li>
-            <li class="nav-item"><a class="nav-link" href="#membership">专业会员</a></li>
-            <li class="nav-item"><a class="nav-link" href="#honors">荣誉与奖励</a></li>
-            <li class="nav-item"><a class="nav-link" href="#interests">个人兴趣</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">联系方式</a></li>
-        </ul>
-        <footer class="mt-auto pt-3 text-center small text-muted">
-            © 2025 [您的姓名]
-        </footer>
+    <hr />
+
+    <nav class="nav flex-column mt-3">
+      <a class="nav-link" href="#about">基本信息</a>
+      <a class="nav-link" href="#research">研究方向</a>
+      <a class="nav-link" href="#education">教育背景</a>
+      <a class="nav-link" href="#publications">发表论文</a>
+      <a class="nav-link" href="#honors">荣誉与奖励</a>
+      <a class="nav-link" href="#contact">联系方式</a>
     </nav>
 
-    <!-- ================= 主内容区 ================ -->
-    <main id="main-content">
-        <!-- 基本信息 -->
-        <section id="about">
-            <h2>基本信息</h2>
-            <p><strong>姓名：</strong> [您的姓名]</p>
-            <p><strong>职称：</strong> [您的职称或学术头衔]</p>
-            <p><strong>邮箱：</strong> [您的联系邮箱]</p>
-        </section>
+    <footer class="mt-4">© 2025 Y.Hao</footer>
+  </aside>
 
-        <!-- 研究兴趣 -->
-        <section id="research">
-            <h2>研究兴趣</h2>
-            <p>[简要描述您的研究兴趣及专长领域，例如“我的研究兴趣聚焦于机器学习理论及其在可持续能源系统中的应用”]</p>
-        </section>
+  <!-- ===== 主内容区域 ===== -->
+  <main id="main-content" class="container-fluid">
+    <!-- 基本信息 -->
+    <section id="about" class="section">
+      <h2>基本信息</h2>
+      <p><strong>姓名：</strong> 郝亦武</p>
+      <p><strong>学校：</strong> 重庆大学</p>
+      <p><strong>邮箱：</strong> xxx.500million@gmail.com</p>
+    </section>
 
-        <!-- 教育背景 -->
-        <section id="education">
-            <h2>教育背景</h2>
-            <ul class="list-unstyled">
-                <li><strong>[最高学位]</strong>，[毕业院校] — [起止年份]</li>
-                <li><strong>[其他学位]</strong>，[毕业院校] — [起止年份]</li>
-            </ul>
-        </section>
+    <!-- 研究方向 -->
+    <section id="research" class="section">
+      <h2>研究方向</h2>
+      <ul>
+        <li>灰色系统模型</li>
+        <li>智能优化算法</li>
+        <li>机器学习</li>
+      </ul>
+    </section>
 
-        <!-- 工作经历 -->
-        <section id="experience">
-            <h2>工作经历</h2>
-            <ul class="list-unstyled">
-                <li><strong>[单位/机构]</strong>，[职位] — [起止年份]</li>
-                <li><strong>[单位/机构]</strong>，[职位] — [起止年份]</li>
-            </ul>
-        </section>
+    <!-- 教育背景 -->
+    <section id="education" class="section">
+      <h2>教育背景</h2>
+      <ul>
+        <li><strong>重庆大学（研究生）</strong>，2025.05.26 – 至今</li>
+        <li><strong>西南科技大学（本科）</strong>，2021.06.13 – 2025.06.13</li>
+      </ul>
+    </section>
 
-        <!-- 发表论文 -->
-        <section id="publications">
-            <h2>发表论文</h2>
-            <ol>
-                <li>[作者]. “[论文题目]”. <em>[期刊/会议]</em>, [年份].</li>
-                <li>[作者]. “[论文题目]”. <em>[期刊/会议]</em>, [年份].</li>
-            </ol>
-        </section>
+    <!-- 发表论文 -->
+    <section id="publications" class="section">
+      <h2>发表论文</h2>
+      <ol>
+        <li>Hao Y, Ma X, Song L, et al. A residual learning-based grey system model and its applications in Electricity Transformer's Seasonal oil temperature forecasting. <em>Engineering Applications of Artificial Intelligence</em>, 2025, 147: 110260.</li>
+        <li>Hao Y, Ma X. A Hybrid Grey System Model Based on Stacked Long Short-Term Memory Layers and Its Application in Energy Consumption Forecasting. <em>Processes</em>, 2024, 12(8): 1749.</li>
+        <li>Ma X, Hao Y, Li W. An evolutionary features-based neural grey system model and its application. <em>Applied Mathematical Modelling</em>, 2025, 145: 116126.</li>
+      </ol>
+    </section>
 
-        <!-- 专业会员 -->
-        <section id="membership">
-            <h2>专业会员</h2>
-            <ul>
-                <li>[学会/协会名称] — [角色]（如：会员、理事）</li>
-                <li>[学会/协会名称] — [角色]</li>
-            </ul>
-        </section>
+    <!-- 荣誉与奖励 -->
+    <section id="honors" class="section">
+      <h2>荣誉与奖励</h2>
+      <ul>
+        <li>西南科技大学优秀团员，2022.05</li>
+        <li>西南科技大学优秀团学干部，2023.05</li>
+        <li>西南科技大学学习成绩优秀，2024.10</li>
+        <li>第十五届蓝桥杯四川赛区Python程序设计一等奖，2024.04</li>
+        <li>全国大学生数学建模竞赛二等奖，2023.05</li>
+        <li>全国大学生电工数学建模竞赛二等奖，2023.07</li>
+        <li>绵阳市三好学生，2025.03</li>
+        <li>四川省现场统计学会科研成果奖二等奖，2024.11</li>
+      </ul>
+    </section>
 
-        <!-- 荣誉与奖励 -->
-        <section id="honors">
-            <h2>荣誉与奖励</h2>
-            <ul>
-                <li>[奖励名称] — [授予机构]，[年份]</li>
-                <li>[奖励名称] — [授予机构]，[年份]</li>
-            </ul>
-        </section>
+    <!-- 联系方式 -->
+    <section id="contact" class="section">
+      <h2>联系方式</h2>
+      <p><strong>Email：</strong> xxx.500million@gmail.com</p>
+    </section>
+  </main>
 
-        <!-- 个人兴趣 -->
-        <section id="interests">
-            <h2>个人兴趣</h2>
-            <p>[简述兴趣爱好，例如“古典音乐演奏、高山徒步、历史哲学阅读”]</p>
-        </section>
-
-        <!-- 联系方式 -->
-        <section id="contact">
-            <h2>联系方式</h2>
-            <p><strong>Email：</strong> [您的邮箱地址]</p>
-            <p><strong>电话：</strong> [您的联系电话]</p>
-            <p><strong>地址：</strong> [您的通信地址]</p>
-        </section>
-    </main>
-
-    <!-- Bootstrap JS (Popper & Bundle) -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    ></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
